@@ -55,7 +55,7 @@ const renderNamberField = (
 
 class SignUp extends Component { 
   render() {
-    const { pristine, submitting, handleSubmit } = this.props;
+    const { invalid, submitting, handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(submit)}>
         <span className='spanLink'>Already have an account?</span> 
@@ -85,7 +85,7 @@ class SignUp extends Component {
           <Field name="password" type='password' component={renderTextField} placeholder='Create a password' label="Password" />
         </div>
         <div>
-          <button type="submit" disabled={pristine || submitting}>Сontinue</button>
+          <button type="submit" disabled={invalid || submitting}>Сontinue</button>
         </div>
       </form>
     );

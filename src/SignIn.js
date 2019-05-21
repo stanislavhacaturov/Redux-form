@@ -21,7 +21,7 @@ const renderField = (
 );
 
 const SignIn = props => {
-  const { error, handleSubmit, pristine, reset, submitting } = props;
+  const { error, handleSubmit, invalid, submitting } = props;
   return (
     <form onSubmit={handleSubmit(submit)}>
       <span className='spanLink'>Don't have an account?</span> 
@@ -35,10 +35,7 @@ const SignIn = props => {
           </div>
       {error && <strong>{error}</strong>}
       <div>
-        <button type="submit" disabled={submitting}>Log In</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
-          Clear Values
-        </button>
+        <button type="submit" disabled={invalid || submitting}>Log In</button>
       </div>
     </form>
   );
